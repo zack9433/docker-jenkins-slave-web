@@ -1,0 +1,26 @@
+#!/bin/bash
+ 
+# Usage: slackpost <webhook> <message>
+
+webhook=$1
+ 
+if [[ $webhook == "" ]]
+then
+        echo "No webhook specified"
+        exit 1
+fi
+ 
+shift
+ 
+message=$*
+ 
+if [[ $message == "" ]]
+then
+        echo "No message specified"
+        exit 1
+fi
+ 
+escapedText=$(echo $message | sed 's/"/\"/g' | sed "s/'/\'/g" )
+json="{\"text\": \"$escapedText\"}"
+ 
+curl -s -d "payload=$json" $webhook

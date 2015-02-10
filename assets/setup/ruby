@@ -1,0 +1,27 @@
+#!/bin/bash
+set -e
+
+RUBY_INSTALL_VERSION=${RUBY_INSTALL_VERSION:-2.1.2}
+
+# Install ruby
+git clone https://github.com/sstephenson/rbenv.git $HOME/.rbenv
+git clone https://github.com/sstephenson/ruby-build.git $HOME/.rbenv/plugins/ruby-build
+
+# Setup exec path
+echo 'export PATH=$HOME/.rbenv/bin:$PATH' >> ~/.bash_profile
+echo 'eval "$(rbenv init - --no-rehash)"' >> ~/.bash_profile
+export PATH=$HOME/.rbenv/bin:$PATH
+eval "$(rbenv init - --no-rehash)"
+
+# Never install rubygem docs
+rbenv install $RUBY_INSTALL_VERSION
+rbenv global $RUBY_INSTALL_VERSION
+rbenv rehash
+echo 'gem: --no-rdoc --no-ri' >> ~/.gemrc
+
+# # Install sass and compass
+gem install compass
+rbenv rehash
+
+# Setup git use https:// instead of git://
+git config --global url.https://.insteadOf git://
