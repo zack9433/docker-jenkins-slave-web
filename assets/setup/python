@@ -1,0 +1,4 @@
+#!/bin/bash
+
+# Install pip
+env python /app/scripts/get-pip.py
