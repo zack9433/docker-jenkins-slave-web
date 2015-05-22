@@ -37,3 +37,5 @@ USER jenkins-slave
 RUN bash -c "/app/setup/ruby"
 
 RUN bash -c "/app/setup/node"
+
+RUN bash -c "/app/setup/python"
