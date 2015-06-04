@@ -1,8 +1,8 @@
 #!/bin/bash
 
-NODE_INSTALL_VERSION=${NODE_INSTALL_VERSION:-iojs-v1.8.1}
+NODE_INSTALL_VERSION=${NODE_INSTALL_VERSION:-v0.12.4}
 
-curl https://raw.githubusercontent.com/creationix/nvm/v0.25.1/install.sh | bash
+curl https://raw.githubusercontent.com/creationix/nvm/v0.25.4/install.sh | bash
 echo "source ~/.nvm/nvm.sh" >> ~/.bash_profile
 source ~/.bash_profile
 nvm install $NODE_INSTALL_VERSION
