@@ -15,6 +15,7 @@ RUN dpkg --add-architecture i386 && \
     libicu-dev \
     libssl-dev \
     libpng-dev \
+    libreadline-dev \
     debhelper \
     fakeroot \
     git \
