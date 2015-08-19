@@ -19,7 +19,7 @@ RUN dpkg --add-architecture i386 && \
     debhelper \
     fakeroot \
     git \
-    qemu \
+    qemu-user \
     curl && \
     rm -rf /var/lib/apt/lists/* # 20150209
 
